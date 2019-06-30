@@ -18,4 +18,8 @@ class StringCalculatorTest {
     public void testAddMultipleNumbers() {
         assertEquals(4, StringCalculator.add("1,1,1,1"));
     }
+    @Test
+    public void testAddHandleNewLines() {
+        assertEquals(6, StringCalculator.add("1\n2,3"));
+    }
 }
