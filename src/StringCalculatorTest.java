@@ -13,4 +13,9 @@ class StringCalculatorTest {
     public void testAddEmptyString() {
         assertEquals(0, StringCalculator.add(""));
     }
+
+    @Test
+    public void testAddMultipleNumbers() {
+        assertEquals(4, StringCalculator.add("1,1,1,1"));
+    }
 }
