@@ -14,7 +14,15 @@ public class StringCalculator {
 
     private static List<Integer> convertNumbers(String numbers) {
         List<Integer> numbersList = new LinkedList<>();
-        String[] numbersArray = splitNumbers(numbers);
+        String[] numbersArray;
+        if(numbers.startsWith("//")) {
+            String delimiter = numbers.substring(2, numbers.indexOf("\n")); // get new delimiter
+            numbers = numbers.substring(numbers.indexOf("\n") + 1); // delete line with new delimiter
+            numbersArray = splitNumbers(numbers, delimiter);
+        } else {
+            numbersArray = splitNumbers(numbers);
+        }
+
         for(String number: numbersArray) {
             int numberInt = 0;
             try {
@@ -30,5 +38,9 @@ public class StringCalculator {
 
     private static String[] splitNumbers(String numbers) {
         return numbers.split(",|\n");
+    }
+
+    private static String[] splitNumbers(String numbers, String delimiter) {
+        return numbers.split(delimiter + "|\n");
     }
 }
