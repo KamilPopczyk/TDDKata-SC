@@ -22,16 +22,17 @@ public class StringCalculator {
         } else {
             numbersArray = splitNumbers(numbers);
         }
-
         for(String number: numbersArray) {
             int numberInt = 0;
-            try {
-                numberInt = Integer.parseInt(number);
-            } catch (NumberFormatException e) {
-                System.out.println(e);
+            if(!number.equals("")) { // split method is not perfect
+                try {
+                    numberInt = Integer.parseInt(number);
+                } catch (NumberFormatException e) {
+                    System.out.println(e);
+                }
+                if (numberInt < 0) throw new RuntimeException("Negatives numbers are not allowed.");
+                else if (numberInt <= 1000) numbersList.add(numberInt);
             }
-            if(numberInt < 0) throw new RuntimeException("Negatives numbers are not allowed.");
-            else if(numberInt <= 1000) numbersList.add(numberInt);
         }
         return numbersList;
     }
