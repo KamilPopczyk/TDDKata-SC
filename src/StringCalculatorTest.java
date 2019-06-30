@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.TimeoutException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
@@ -25,5 +27,9 @@ class StringCalculatorTest {
     @Test
     public void testAddSupportDifferentDelimiters() {
         assertEquals(3, StringCalculator.add("//;\n1;2"));
+    }
+    @Test
+    public void testAddExceptionNegativeNumber() {
+        assertThrows(RuntimeException.class, () -> StringCalculator.add("-1,2"));
     }
 }
