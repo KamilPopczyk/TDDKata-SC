@@ -31,7 +31,7 @@ public class StringCalculator {
                 System.out.println(e);
             }
             if(numberInt < 0) throw new RuntimeException("Negatives numbers are not allowed.");
-            else numbersList.add(numberInt);
+            else if(numberInt <= 1000) numbersList.add(numberInt);
         }
         return numbersList;
     }
