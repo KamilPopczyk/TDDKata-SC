@@ -30,8 +30,8 @@ public class StringCalculator {
             } catch (NumberFormatException e) {
                 System.out.println(e);
             }
-
-            numbersList.add(numberInt);
+            if(numberInt < 0) throw new RuntimeException("Negatives numbers are not allowed.");
+            else numbersList.add(numberInt);
         }
         return numbersList;
     }
