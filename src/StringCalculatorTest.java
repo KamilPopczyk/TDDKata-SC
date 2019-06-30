@@ -32,4 +32,8 @@ class StringCalculatorTest {
     public void testAddExceptionNegativeNumber() {
         assertThrows(RuntimeException.class, () -> StringCalculator.add("-1,2"));
     }
+    @Test
+    public void testAddNumbersMoreThan1000ShouldBeIgnored() {
+        assertEquals(2, StringCalculator.add("2,1001"));
+    }
 }
