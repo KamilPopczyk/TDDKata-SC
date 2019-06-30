@@ -42,6 +42,7 @@ public class StringCalculator {
     }
 
     private static String[] splitNumbers(String numbers, String delimiter) {
+        delimiter = delimiter.replaceAll("]\\[", "]|["); // modify for split method
         return numbers.split(delimiter + "|\n");
     }
 }
