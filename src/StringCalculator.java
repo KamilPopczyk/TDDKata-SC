@@ -29,6 +29,6 @@ public class StringCalculator {
     }
 
     private static String[] splitNumbers(String numbers) {
-        return numbers.split(",");
+        return numbers.split(",|\n");
     }
 }
